@@ -40,8 +40,22 @@ namespace WF_Time_Sheet
 
         }
 
-  
-
-
+        private void btnCheck_Click(object sender, EventArgs e)
+        {
+            this.timeSheetTableAdapter.Fill(this.dbTimeSheetDataSetWF.timeSheet);
+        }
     }
+
+      public static class caclualteRate
+        {
+
+            //static fields  
+            public static double result;
+            public static double calculateRate(double hours, double hourRate)
+            {
+                result = hours * hourRate;
+                return result;
+            }
+
+        }
 }

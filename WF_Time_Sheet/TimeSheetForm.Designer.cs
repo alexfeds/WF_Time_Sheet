@@ -32,9 +32,6 @@ namespace WF_Time_Sheet
             this.components = new System.ComponentModel.Container();
             this.dbTimeSheetDataSet = new WF_Time_Sheet.dbTimeSheetDataSet();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dbTimeSheetDataSetWF = new WF_Time_Sheet.dbTimeSheetDataSetWF();
-            this.timeSheetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.timeSheetTableAdapter = new WF_Time_Sheet.dbTimeSheetDataSetWFTableAdapters.timeSheetTableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,11 +40,15 @@ namespace WF_Time_Sheet
             this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.horlyRateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timeSheetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dbTimeSheetDataSetWF = new WF_Time_Sheet.dbTimeSheetDataSetWF();
+            this.timeSheetTableAdapter = new WF_Time_Sheet.dbTimeSheetDataSetWFTableAdapters.timeSheetTableAdapter();
             this.materialRaisedAddButton = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnCheck = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.dbTimeSheetDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbTimeSheetDataSetWF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeSheetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbTimeSheetDataSetWF)).BeginInit();
             this.SuspendLayout();
             // 
             // dbTimeSheetDataSet
@@ -75,20 +76,6 @@ namespace WF_Time_Sheet
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1029, 150);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // dbTimeSheetDataSetWF
-            // 
-            this.dbTimeSheetDataSetWF.DataSetName = "dbTimeSheetDataSetWF";
-            this.dbTimeSheetDataSetWF.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // timeSheetBindingSource
-            // 
-            this.timeSheetBindingSource.DataMember = "timeSheet";
-            this.timeSheetBindingSource.DataSource = this.dbTimeSheetDataSetWF;
-            // 
-            // timeSheetTableAdapter
-            // 
-            this.timeSheetTableAdapter.ClearBeforeFill = true;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -155,6 +142,20 @@ namespace WF_Time_Sheet
             this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
             this.totalDataGridViewTextBoxColumn.Width = 125;
             // 
+            // timeSheetBindingSource
+            // 
+            this.timeSheetBindingSource.DataMember = "timeSheet";
+            this.timeSheetBindingSource.DataSource = this.dbTimeSheetDataSetWF;
+            // 
+            // dbTimeSheetDataSetWF
+            // 
+            this.dbTimeSheetDataSetWF.DataSetName = "dbTimeSheetDataSetWF";
+            this.dbTimeSheetDataSetWF.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // timeSheetTableAdapter
+            // 
+            this.timeSheetTableAdapter.ClearBeforeFill = true;
+            // 
             // materialRaisedAddButton
             // 
             this.materialRaisedAddButton.Depth = 0;
@@ -168,12 +169,26 @@ namespace WF_Time_Sheet
             this.materialRaisedAddButton.UseVisualStyleBackColor = true;
             this.materialRaisedAddButton.Click += new System.EventHandler(this.materialRaisedAddButton_Click);
             // 
+            // btnCheck
+            // 
+            this.btnCheck.Depth = 0;
+            this.btnCheck.Location = new System.Drawing.Point(640, 541);
+            this.btnCheck.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Primary = true;
+            this.btnCheck.Size = new System.Drawing.Size(75, 23);
+            this.btnCheck.TabIndex = 2;
+            this.btnCheck.Text = "Refresh";
+            this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
+            // 
             // TimeSheetForm
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1096, 699);
+            this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.materialRaisedAddButton);
             this.Controls.Add(this.dataGridView1);
             this.Name = "TimeSheetForm";
@@ -181,8 +196,8 @@ namespace WF_Time_Sheet
             this.Load += new System.EventHandler(this.TimeSheetForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dbTimeSheetDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbTimeSheetDataSetWF)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeSheetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbTimeSheetDataSetWF)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -203,6 +218,7 @@ namespace WF_Time_Sheet
         private System.Windows.Forms.DataGridViewTextBoxColumn horlyRateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedAddButton;
+        private MaterialSkin.Controls.MaterialRaisedButton btnCheck;
     }
 }
 

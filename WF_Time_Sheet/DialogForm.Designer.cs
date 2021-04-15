@@ -39,6 +39,7 @@ namespace WF_Time_Sheet
             this.btnCancelDialog = new MaterialSkin.Controls.MaterialRaisedButton();
             this.labelTotal = new MaterialSkin.Controls.MaterialLabel();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            this.btnRefresh = new MaterialSkin.Controls.MaterialRaisedButton();
             this.SuspendLayout();
             // 
             // TextBoxHourlyRate
@@ -151,7 +152,7 @@ namespace WF_Time_Sheet
             this.labelTotal.Location = new System.Drawing.Point(80, 602);
             this.labelTotal.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(52, 23);
+            this.labelTotal.Size = new System.Drawing.Size(53, 24);
             this.labelTotal.TabIndex = 11;
             this.labelTotal.Text = "Total";
             // 
@@ -166,11 +167,25 @@ namespace WF_Time_Sheet
             this.materialDivider1.TabIndex = 12;
             this.materialDivider1.Text = "materialDivider1";
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Depth = 0;
+            this.btnRefresh.Location = new System.Drawing.Point(185, 705);
+            this.btnRefresh.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Primary = true;
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 13;
+            this.btnRefresh.Text = "refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+       
+            // 
             // DialogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(488, 896);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.labelTotal);
             this.Controls.Add(this.btnCancelDialog);
@@ -199,5 +214,6 @@ namespace WF_Time_Sheet
         private MaterialSkin.Controls.MaterialRaisedButton btnCancelDialog;
         private MaterialSkin.Controls.MaterialLabel labelTotal;
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
+        private MaterialSkin.Controls.MaterialRaisedButton btnRefresh;
     }
 }

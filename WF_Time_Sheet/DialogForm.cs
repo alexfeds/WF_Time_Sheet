@@ -17,7 +17,7 @@ namespace WF_Time_Sheet
         double hours;
         double hourlyRate;
 
-        TimeSheetForm timform = new TimeSheetForm();
+        TimeSheetForm obj = (TimeSheetForm)Application.OpenForms["TimeSheetForm"];
 
         public DialogForm()
         {
@@ -59,9 +59,9 @@ namespace WF_Time_Sheet
                 Console.WriteLine(ex);
             }
 
-            timform.TimeSheetForm_Load(sender, e);
 
-            DataGridView.Refresh;
+            obj.TimeSheetForm_Load(sender, e);
+     
         }
 
         private void TextBoxHourlyRate_LostFocus(object sender, EventArgs e)
@@ -105,6 +105,6 @@ namespace WF_Time_Sheet
 
         }
 
-      
+     
     }
 }
