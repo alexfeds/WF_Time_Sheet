@@ -15,8 +15,10 @@ namespace WF_Time_Sheet
     {
         public TimeSheetForm()
         {
-
+            // initialize component 
             InitializeComponent();
+
+            // Set material design skin
             MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
             skinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
@@ -24,14 +26,16 @@ namespace WF_Time_Sheet
 
         }
 
+        // loading data to table on start
         public void TimeSheetForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dbTimeSheetDataSetWF.timeSheet' table. You can move, or remove it, as needed.
             this.timeSheetTableAdapter.Fill(this.dbTimeSheetDataSetWF.timeSheet);
+            lbl_Total.Text = $"Total records: {dataGridView1.RowCount}";
 
         }
-
-        private void materialRaisedAddButton_Click(object sender, EventArgs e)
+        // Opens dialog for record create
+        private void OpenDialogRecordCreate_Click(object sender, EventArgs e) 
         {
             using (DialogForm dialogForm = new DialogForm())
             {
@@ -39,23 +43,12 @@ namespace WF_Time_Sheet
             }
 
         }
-
-        private void btnCheck_Click(object sender, EventArgs e)
+        // Refresh table
+        public void RefreshTable_Click(object sender, EventArgs e) 
         {
             this.timeSheetTableAdapter.Fill(this.dbTimeSheetDataSetWF.timeSheet);
+            lbl_Total.Text = $"Total records: {dataGridView1.RowCount}";
         }
     }
 
-      public static class caclualteRate
-        {
-
-            //static fields  
-            public static double result;
-            public static double calculateRate(double hours, double hourRate)
-            {
-                result = hours * hourRate;
-                return result;
-            }
-
-        }
 }

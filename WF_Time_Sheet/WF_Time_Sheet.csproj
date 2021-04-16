@@ -73,6 +73,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility.cs" />
     <EmbeddedResource Include="DialogForm.resx">
       <DependentUpon>DialogForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +88,7 @@
     </Compile>
     <EmbeddedResource Include="TimeSheetForm.resx">
       <DependentUpon>TimeSheetForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="dbTimeSheetDataSet.xsc">
       <DependentUpon>dbTimeSheetDataSet.xsd</DependentUpon>

@@ -44,7 +44,9 @@ namespace WF_Time_Sheet
             this.dbTimeSheetDataSetWF = new WF_Time_Sheet.dbTimeSheetDataSetWF();
             this.timeSheetTableAdapter = new WF_Time_Sheet.dbTimeSheetDataSetWFTableAdapters.timeSheetTableAdapter();
             this.materialRaisedAddButton = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnCheck = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.labelEntries = new MaterialSkin.Controls.MaterialLabel();
+            this.lbl_Total = new MaterialSkin.Controls.MaterialLabel();
+            this.btnRefresh = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.dbTimeSheetDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeSheetBindingSource)).BeginInit();
@@ -59,6 +61,7 @@ namespace WF_Time_Sheet
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.MenuBar;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn,
@@ -70,11 +73,13 @@ namespace WF_Time_Sheet
             this.horlyRateDataGridViewTextBoxColumn,
             this.totalDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.timeSheetBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(55, 291);
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.dataGridView1.Location = new System.Drawing.Point(73, 156);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1029, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(1055, 381);
             this.dataGridView1.TabIndex = 0;
             // 
             // iDDataGridViewTextBoxColumn
@@ -159,46 +164,79 @@ namespace WF_Time_Sheet
             // materialRaisedAddButton
             // 
             this.materialRaisedAddButton.Depth = 0;
-            this.materialRaisedAddButton.Location = new System.Drawing.Point(424, 517);
+            this.materialRaisedAddButton.Location = new System.Drawing.Point(73, 545);
+            this.materialRaisedAddButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.materialRaisedAddButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedAddButton.Name = "materialRaisedAddButton";
             this.materialRaisedAddButton.Primary = true;
-            this.materialRaisedAddButton.Size = new System.Drawing.Size(96, 23);
+            this.materialRaisedAddButton.Size = new System.Drawing.Size(124, 35);
             this.materialRaisedAddButton.TabIndex = 1;
-            this.materialRaisedAddButton.Text = "Add";
+            this.materialRaisedAddButton.Text = "Create";
             this.materialRaisedAddButton.UseVisualStyleBackColor = true;
-            this.materialRaisedAddButton.Click += new System.EventHandler(this.materialRaisedAddButton_Click);
+            this.materialRaisedAddButton.Click += new System.EventHandler(this.OpenDialogRecordCreate_Click);
             // 
-            // btnCheck
+            // labelEntries
             // 
-            this.btnCheck.Depth = 0;
-            this.btnCheck.Location = new System.Drawing.Point(640, 541);
-            this.btnCheck.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Primary = true;
-            this.btnCheck.Size = new System.Drawing.Size(75, 23);
-            this.btnCheck.TabIndex = 2;
-            this.btnCheck.Text = "Refresh";
-            this.btnCheck.UseVisualStyleBackColor = true;
-            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
+            this.labelEntries.AutoSize = true;
+            this.labelEntries.Depth = 0;
+            this.labelEntries.Font = new System.Drawing.Font("Roboto", 11F);
+            this.labelEntries.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelEntries.Location = new System.Drawing.Point(69, 115);
+            this.labelEntries.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelEntries.Name = "labelEntries";
+            this.labelEntries.Size = new System.Drawing.Size(168, 24);
+            this.labelEntries.TabIndex = 2;
+            this.labelEntries.Text = "Time Sheet Entries";
+            // 
+            // lbl_Total
+            // 
+            this.lbl_Total.AutoSize = true;
+            this.lbl_Total.Depth = 0;
+            this.lbl_Total.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_Total.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_Total.Location = new System.Drawing.Point(995, 556);
+            this.lbl_Total.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_Total.Name = "lbl_Total";
+            this.lbl_Total.Size = new System.Drawing.Size(58, 24);
+            this.lbl_Total.TabIndex = 3;
+            this.lbl_Total.Text = "Total:";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Depth = 0;
+            this.btnRefresh.Location = new System.Drawing.Point(1024, 115);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRefresh.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Primary = true;
+            this.btnRefresh.Size = new System.Drawing.Size(104, 33);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.RefreshTable_Click);
             // 
             // TimeSheetForm
             // 
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1096, 699);
-            this.Controls.Add(this.btnCheck);
+            this.ClientSize = new System.Drawing.Size(1223, 648);
+            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.lbl_Total);
+            this.Controls.Add(this.labelEntries);
             this.Controls.Add(this.materialRaisedAddButton);
             this.Controls.Add(this.dataGridView1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "TimeSheetForm";
-            this.Text = "Form1";
+            this.Text = "Practice Evolve Time Sheet";
             this.Load += new System.EventHandler(this.TimeSheetForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dbTimeSheetDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeSheetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbTimeSheetDataSetWF)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -218,7 +256,9 @@ namespace WF_Time_Sheet
         private System.Windows.Forms.DataGridViewTextBoxColumn horlyRateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedAddButton;
-        private MaterialSkin.Controls.MaterialRaisedButton btnCheck;
+        private MaterialSkin.Controls.MaterialLabel labelEntries;
+        private MaterialSkin.Controls.MaterialLabel lbl_Total;
+        private MaterialSkin.Controls.MaterialRaisedButton btnRefresh;
     }
 }
 
